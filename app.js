@@ -4,6 +4,13 @@ const mongoose = require('mongoose')
 const PORT = 5000
 const {MONGOURI} = require('./Keys')
 
+require('./models/user')
+
+//Express server never automatically parses json requests, so for that we need to do the following.
+app.use(express.json())
+
+app.use(require('./routes/auth'))
+
 mongoose.connect(MONGOURI,{
     useNewUrlParser: true,
     useUnifiedTopology:true
