@@ -4,12 +4,6 @@ const mongoose = require('mongoose')
 const PORT = 5000
 const {MONGOURI} = require('./Keys')
 
-require('./models/user')
-
-//Express server never automatically parses json requests, so for that we need to do the following.
-app.use(express.json())
-
-app.use(require('./routes/auth'))
 
 mongoose.connect(MONGOURI,{
     useNewUrlParser: true,
@@ -22,6 +16,15 @@ mongoose.connection.on('connected',()=> {
 mongoose.connection.on('error',(err)=> {
     console.log("Error Connecting", err)
 })
+
+// Registering Models
+require('./models/user')
+require('./models/post')
+
+//Express server never automatically parses json requests, so for that we need to do the following.
+app.use(express.json())
+app.use(require('./routes/auth'))
+
 
 
 //Custom Middleware: This will be called first before any of the call routes is being called.
