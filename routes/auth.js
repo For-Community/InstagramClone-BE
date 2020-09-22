@@ -15,7 +15,7 @@ router.post('/signup',(req,res)=>{
     User.findOne({email: email})
     .then((savedUser)=>{
         if(savedUser){
-            return res.status(422).json({error:"User already exists with tha email"})
+            return res.status(422).json({error:"User already exists with the email"})
         }
 
         bcrypt.hash(password, 12)
@@ -40,5 +40,33 @@ router.post('/signup',(req,res)=>{
         console.log(err)
     })
 })
+
+//SignIn Route
+router.post('/signin',(req,res)=>{
+    const {email, password} = req.body
+    if(!email || !password){
+        return res.status(422).json({error:"Please Add email or password"})
+    }
+
+    User.findOne({email:email})
+    .then(savedUser=>{
+        if(!savedUser){
+            return res.status(422).json({error:"Invalid Email or password"})
+        }
+        bcrypt.compare(password, savedUser.password)
+        .then(doMatch =>{
+            if(doMatch){
+                res.json({message:"Successfully Signed In"})
+            }
+            else{
+                return res.status(422).json({error:"Invalid Email or password"})
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    })
+})
+
 
 module.exports = router
