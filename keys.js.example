@@ -1,3 +1,4 @@
 module.exports={
-    MONGOURI:"mongodb+srv://<databaseUsername>:<password>@cluster0.skbwx.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    MONGOURI:"mongodb+srv://<databaseUsername>:<password>@cluster0.skbwx.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    JWT_SECRET: "<YOUR JWT_SECRET KEY>"
 }
