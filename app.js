@@ -23,7 +23,10 @@ require('./models/post')
 
 //Express server never automatically parses json requests, so for that we need to do the following.
 app.use(express.json())
+
+// Registering Routes 
 app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 
 

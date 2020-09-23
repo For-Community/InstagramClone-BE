@@ -19,7 +19,7 @@ module.exports =  (req,res,next)=>{
         User.findById(_id)
         .then(userdata=>{
             req.user = userdata
+            next()
         })
-        next()
     })
 }

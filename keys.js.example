@@ -1,4 +1,6 @@
+// Please rename the file name from keys.js.example to keys.js
+
 module.exports={
     MONGOURI:"mongodb+srv://<databaseUsername>:<password>@cluster0.skbwx.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    JWT_SECRET: "<YOUR JWT_SECRET KEY>"
+    JWT_SECRET: "<YOUR JWT_SECRET KEY(random)>"
 }
