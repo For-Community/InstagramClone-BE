@@ -37,4 +37,17 @@ router.post('/createpost', auth, (req,res)=>{
     })
 })
 
+//Route to find posts made by the logged in User(if any)
+router.get('/mypost', auth, (req,res)=>{
+    Post.find({postedBy:req.user._id})
+    .populate('PostedBy','_id name')
+    .then(mypost=>{
+        res.json({mypost})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+
 module.exports = router
