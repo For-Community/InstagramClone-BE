@@ -25,7 +25,7 @@ router.post('/createpost', auth, (req,res)=>{
     const post = new Post({
         title,
         body,
-        picUrl,
+        photo: picUrl,
         postedBy : req.user
     })
 
