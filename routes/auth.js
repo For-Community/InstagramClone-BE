@@ -4,12 +4,12 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../Keys')
-const auth = require('../middleware/auth')
+const requireLogin = require('../middleware/requireLogin')
 
 const User = mongoose.model('User')
 
 // Demo how middleware is working
-// router.get('/protected', auth, (req,res)=>{
+// router.get('/protected', requireLogin, (req,res)=>{
 //     res.send("hello user")
 // })
 

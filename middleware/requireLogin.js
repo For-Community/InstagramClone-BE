@@ -15,7 +15,7 @@ module.exports =  (req,res,next)=>{
         if(err){
             return res.status(401).json({err:"You must be logged in"})
         }
-        const {_id} = payload
+        const {_id} = payload //destructuring only _id from my payload which is _id, email, name
         User.findById(_id)
         .then(userdata=>{
             req.user = userdata
