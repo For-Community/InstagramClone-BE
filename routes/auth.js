@@ -19,6 +19,11 @@ router.post('/signup',(req,res)=>{
     if(!email || !password || !name){
         return res.status(422).json({error:"Please add all the fields"})
     }
+
+    //Email Regex(Email Validity Checking)
+    if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+            return res.status(422).json({error:"INVALID EMAIL"})
+    }
     
     User.findOne({email: email})
     .then((savedUser)=>{
@@ -36,7 +41,7 @@ router.post('/signup',(req,res)=>{
     
             user.save()
             .then(user=>{
-                res.json({message:"Saved Successfully"})
+                res.json({message:"SignedUp Successfully"})
             })
             .catch(err=>{
                 console.log(err)
@@ -54,6 +59,11 @@ router.post('/signin',(req,res)=>{
     const {email, password} = req.body
     if(!email || !password){
         return res.status(422).json({error:"Please Add email or password"})
+    }
+
+    //Email Regex(Email Validity Checking)
+    if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+        return res.status(422).json({error:"INVALID EMAIL"})
     }
 
     User.findOne({email:email})
