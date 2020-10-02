@@ -1,9 +1,8 @@
 # Instagram Clone
 
-
-
 ![Image 1](https://raw.githubusercontent.com/himanshup/instagram-clone/master/screenshots/image1.png)  
-Instagram clone built with React, Redux, Node.js, Express, Passport.js & MongoDB.
+Instagram clone built with React, Redux, Node.js, Express, Passport.js &
+MongoDB.
 
 ## Features
 
@@ -12,7 +11,8 @@ Instagram clone built with React, Redux, Node.js, Express, Passport.js & MongoDB
 - Comment on posts and option to edit/delete them
 - Like/unlike posts
 - Follow/unfollow users
-- Feed consists of posts from users you follow and the 'Explore' page has posts from every user
+- Feed consists of posts from users you follow and the 'Explore' page has posts
+  from every user
 
 ## Features to add
 
@@ -25,13 +25,16 @@ Instagram clone built with React, Redux, Node.js, Express, Passport.js & MongoDB
 
 ## Running Locally
 
-The following instructions should get this project running on your machine.  
+The following instructions should get this project running on your machine.
 
 ### Prerequisites
-1. Install [MongoDB](https://www.mongodb.com/)  
-2. Create a [Cloudinary](https://cloudinary.com/) account (need an API key and secret)
+
+1. Install [MongoDB](https://www.mongodb.com/)
+2. Create a [Cloudinary](https://cloudinary.com/) account (need an API key and
+   secret)
 
 ### Installing
+
 ```
 git clone https://github.com/101Loop/InstagramClone-BE.git
 cd reactgram
@@ -48,7 +51,8 @@ API_KEY=<key>
 API_SECRET=<secret>
 ```
 
-Run `mongod` in another terminal and `npm run dev` in the terminal with the project.
+Run `mongod` in another terminal and `npm run dev` in the terminal with the
+project.
 
 ## Tests
 
