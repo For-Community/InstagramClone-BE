@@ -8,10 +8,11 @@ const postSchema = new mongoose.Schema({
     },
     body:{
         type: String,
-        required: true
+        required:true
     },
     photo:{
-        type: String
+        type: String, 
+        required: true
     },
     postedBy:{
         type: ObjectId,
