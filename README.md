@@ -18,7 +18,6 @@ account and adding the database user name and databse password in the
 keys.js.example file
 
 ### Installing
-
 ```
 git clone https://github.com/101Loop/InstagramClone-BE.git
 
@@ -32,3 +31,4 @@ There is already an keys.js.env
 you just have to copy that file and rename it to keys.js and then add
 databaseusername and Password. secondly, you have to add a JWT token, which
 shlould be any random alphabets atleast 14 characters
+
