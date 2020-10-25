@@ -51,5 +51,37 @@ router.get('/mypost', requireLogin, (req,res)=>{
     })
 })
 
+// route to like posts
+router.put('/like', requireLogin, (req,res)=>{
+    Post.findByIdAndUpdate(req.body.postId,{  //the postId will be sent from the front end
+        $push:{likes:req.user._id} //This will push the user ids to the likes array
+    },{
+        new:true //This statement will tell MongoDB to always send an updated record of the likes array
+    }).exec((err, result)=>{
+        if(err){
+            return res.status(422).jsonp({error:err})
+        }
+        else{
+            res.json(result)
+        }
+    })
+})
+
+// route to unlike posts
+router.put('/unlike', requireLogin, (req,res)=>{
+    Post.findByIdAndUpdate(req.body.postId,{  //the postId will be sent from the front end
+        $pull:{likes:req.user._id} //This will push the user ids to the likes array
+    },{
+        new:true //This statement will tell MongoDB to always send an updated record of the likes array
+    }).exec((err, result)=>{
+        if(err){
+            return res.status(422).jsonp({error:err})
+        }
+        else{
+            res.json(result)
+        }
+    })
+})
+
 
 module.exports = router
