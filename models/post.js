@@ -10,14 +10,14 @@ const postSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    like:[{
-        type: ObjectId,
-        ref: 'User'
-    }],
     photo:{
         type: String, 
         required: true
     },
+    like:[{
+        type: ObjectId,
+        ref: 'User'
+    }],
     postedBy:{
         type: ObjectId,
         ref: 'User'

@@ -59,7 +59,7 @@ router.put('/like', requireLogin, (req,res)=>{
         new:true //This statement will tell MongoDB to always send an updated record of the likes array
     }).exec((err, result)=>{
         if(err){
-            return res.status(422).jsonp({error:err})
+            return res.status(422).json({error:err})
         }
         else{
             res.json(result)
@@ -75,7 +75,7 @@ router.put('/unlike', requireLogin, (req,res)=>{
         new:true //This statement will tell MongoDB to always send an updated record of the likes array
     }).exec((err, result)=>{
         if(err){
-            return res.status(422).jsonp({error:err})
+            return res.status(422).json({error:err})
         }
         else{
             res.json(result)
