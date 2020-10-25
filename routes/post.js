@@ -7,6 +7,7 @@ const Post = mongoose.model('Post')
 router.get('/allpost', requireLogin, (req,res)=>{
     Post.find()
     .populate('postedBy', '_id name')
+    .populate('comment.postedBy', '_id name')
     .then(posts=>{
         res.json({posts})
     })
@@ -95,6 +96,7 @@ router.put('/comment', requireLogin, (req,res)=>{
         new:true //This statement will tell MongoDB to always send an updated record of the likes array
     })
     .populate("comment.postedBy","_id name") //this populate line of code is used to get the name of the user who posted that particular post not just the id.
+    .populate("postedBy","_id name") //this populate line of code is used to get the name of the user who posted that particular post not just the id.
     .exec((err, result)=>{
         if(err){
             return res.status(422).json({error:err})
