@@ -1,3 +1,8 @@
+[![GitHub issues](https://img.shields.io/github/issues/101Loop/InstagramClone-BE)](https://github.com/101Loop/InstagramClone-BE/issues)
+[![GitHub forks](https://img.shields.io/github/forks/101Loop/InstagramClone-BE)](https://github.com/101Loop/InstagramClone-BE/network)
+[![GitHub stars](https://img.shields.io/github/stars/101Loop/InstagramClone-BE)](https://github.com/101Loop/InstagramClone-BE/stargazers)
+[![GitHub license](https://img.shields.io/github/license/101Loop/InstagramClone-BE)](https://github.com/101Loop/InstagramClone-BE/blob/master/LICENSE)
+
 # Instagram Clone
 
 Instagram clone built with MongoDB, Express, React JS, Node.
