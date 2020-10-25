@@ -83,5 +83,27 @@ router.put('/unlike', requireLogin, (req,res)=>{
     })
 })
 
+//Comment Route
+router.put('/comment', requireLogin, (req,res)=>{
+    const comments = {
+        text: req.body.text,
+        postedBy : req.user._id
+    }
+    Post.findByIdAndUpdate(req.body.postId,{  //the postId will be sent from the front end
+        $push:{comment:comments} //This will push the user ids to the likes array
+    },{
+        new:true //This statement will tell MongoDB to always send an updated record of the likes array
+    })
+    .populate("comment.postedBy","_id name") //this populate line of code is used to get the name of the user who posted that particular post not just the id.
+    .exec((err, result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }
+        else{
+            res.json(result)
+        }
+    })
+})
+
 
 module.exports = router
